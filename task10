@@ -1,0 +1,42 @@
+n = int(input("Enter number of subjects: "))
+
+marks = []
+total = 0
+
+for i in range(n):
+    m = int(input("Enter marks: "))
+
+    if m < 0 or m > 100:
+        print("Invalid marks")
+        exit()
+
+    marks.append(m)
+
+grace = 5
+
+for i in range(n):
+    if marks[i] < 35 and marks[i] >= 30:
+        marks[i] = min(marks[i] + grace, 100)
+
+print("\nFinal Marks:")
+
+for i in range(n):
+    print("Subject", i + 1, ":", marks[i])
+    total += marks[i]
+
+if all(m >= 35 for m in marks):
+    percentage = total / n
+
+    print("Total Marks:", total)
+    print("Percentage:", percentage)
+
+    if percentage >= 75:
+        print("First Class with Distinction")
+    elif percentage >= 60:
+        print("First Class")
+    elif percentage >= 50:
+        print("Second Class")
+    else:
+        print("Pass")
+else:
+    print("Result: Fail")
