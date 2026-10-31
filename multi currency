@@ -1,0 +1,34 @@
+
+
+expenses = {
+    "Hotel": (200, 83),
+    "Food": (100, 83),
+    "Shopping": (150, 83),
+    "Transport": (50, 83)
+}
+
+budget = 30000
+fee_rate = 2  # 2% conversion fee
+total = 0
+category_totals = {}
+
+for category, (amount, rate) in expenses.items():
+    converted = amount * rate
+    fee = converted * fee_rate / 100
+    cost = converted + fee
+
+    category_totals[category] = cost
+    total += cost
+
+    print(category, "Cost: Rs.", round(cost, 2))
+
+print("Total Spending: Rs.", round(total, 2))
+print("Budget: Rs.", budget)
+
+if total <= budget:
+    print("Within Budget")
+else:
+    print("Budget Exceeded")
+
+largest = max(category_totals, key=category_totals.get)
+print("Largest Expense:", largest)
