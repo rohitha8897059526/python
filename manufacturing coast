@@ -1,0 +1,25 @@
+
+material = 5000
+labour = 2000
+wastage = 500
+machine = 1000
+selling_price = 12000
+
+total_cost = material + labour + wastage + machine
+profit = selling_price - total_cost
+profit_percent = (profit / total_cost) * 100
+target_profit = 20
+
+print("Material Cost:", material)
+print("Labour Charges:", labour)
+print("Wastage Cost:", wastage)
+print("Machine Cost:", machine)
+print("Total Manufacturing Cost:", total_cost)
+print("Selling Price:", selling_price)
+print("Profit:", profit)
+print("Profit Percentage:", profit_percent, "%")
+
+if profit_percent >= target_profit:
+    print("Production meets profit target")
+else:
+    print("Production does not meet profit target")
